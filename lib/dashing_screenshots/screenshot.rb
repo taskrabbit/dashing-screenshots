@@ -25,6 +25,7 @@ module Dashing
 
     def snap(path)
       puts "Fetching #{path}" if @options[:log]
+      @driver.manage.window.resize_to(50,200)
       @driver.navigate.to "http://localhost:3030/#{path}"
       filename = File.join(@directory, "#{path.gsub("/", "__")}.png")
       puts "  saving: #{filename}" if @options[:log]
